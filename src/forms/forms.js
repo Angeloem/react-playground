@@ -2,8 +2,46 @@ import React, {Component} from 'react';
 import Input from "./inputs";
 
 export default class Form extends Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            displayForm: {
+                name: {
+                    elementType: 'input',
+                    elementConfig: {
+                        type: 'text',
+                        placeholder: 'Name'
+                    },
+                    value: ''
+                },
+                source: {
+                    elementType: 'input',
+                    elementConfig: {
+                        type: 'text',
+                        placeholder: 'Source'
+                    },
+                    value: ''
+                },
+                Amount: {
+                    elementType: 'input',
+                    elementConfig: {
+                        type: 'text',
+                        placeholder: 'Amount'
+                    },
+                    value: ''
+                },
+                Options: {
+                    elementType: 'select',
+                    elementConfig: {
+                        options:{}
+                    },
+                    value: ''
+                },
+            }
+        }
+    }
+
     componentDidMount() {
-        console.log("component mounted")
     }
 
     render() {
@@ -11,19 +49,9 @@ export default class Form extends Component{
             <div>
                 <Input
                     className={'pa3 ba b--green bg-lightest-blue'}
-                    input_type={`text`}
-                    placeholder={`inputs`}
-                />
-                <Input
-                    className={'pa3 ba b--green bg-lightest-blue'}
-                    input_type={`textarea`}
-                    placeholder={`inputs`}
-                />
-                <Input
-                    className={'pa3 ba b--green bg-lightest-blue'}
-                    input_type={`button`}
-                    value={`submit`}
-                    placeholder={`inputs`}
+                    elementType='...'
+                    elementConfig={`...`}
+                    value={`...`}
                 />
             </div>
         );

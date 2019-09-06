@@ -2,15 +2,17 @@ import React from 'react';
 
 const Input = (props) => {
     let inputElement = null;
-    switch(props.input_type) {
+    switch(props.elementType) {
         case ('text'):
-            inputElement = <input type={`text`} {...props}/>;
+            inputElement = <input
+                                type={`text`}
+                                {...props.elementConfig}
+                                value={props.value}/>;
             break;
         case ('textarea'):
-            inputElement = <textarea {...props}/>;
-            break;
-        case ('button'):
-            inputElement = <input type={`button`} {...props}/>;
+            inputElement = <textarea
+                                {...props.elementConfig}
+                                value={props.value}/>;
             break;
         default:
             inputElement = "no form specified!!"
