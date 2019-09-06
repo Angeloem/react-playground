@@ -3,7 +3,7 @@ import React from 'react';
 const Input = (props) => {
     let inputElement = null;
     switch(props.elementType) {
-        case ('text'):
+        case ('input'):
             inputElement = <input
                                 type={`text`}
                                 {...props.elementConfig}
