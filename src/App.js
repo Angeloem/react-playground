@@ -42,18 +42,7 @@ class App extends Component{
                 </Scrollable>
             </div>
         )
-        /*if(this.state.robots.length === 0){
-            return <h1>Loading</h1>
-        }
-        else{
-            return(
-                <div className={'tc'}>
-                    <h1 className={'f1'}>Robotics</h1>
-                    <Searchbox searchChange = {this.onSearchChange}/>
-                    <Cardlist robots = {filteredRobots}/>
-                </div>
-            )
-        }*/
+
 
     }
 }
