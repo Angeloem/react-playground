@@ -45,14 +45,24 @@ export default class Form extends Component{
     }
 
     render() {
+        const formFromStateArray = [];
+        for (let key in this.state.displayForm) {
+            formFromStateArray.push({
+                id: key,
+                config: this.state.displayForm[key]
+            });
+        }
         return (
             <div>
-                <Input
-                    className={'pa3 ba b--green bg-lightest-blue'}
-                    elementType='...'
-                    elementConfig={`...`}
-                    value={`...`}
-                />
+                {
+                    formFromStateArray.map(formElement => (
+                        <Input
+                            elementType={formElement.config.elementType}
+                            elementConfig={formElement.config.elementConfig}
+                            value={formElement.config.value}
+                        />
+                    ))
+                }
             </div>
         );
     }
