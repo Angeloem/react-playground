@@ -1,0 +1,38 @@
+body{
+    background: linear-gradient(to right , cadetblue 0% , green 100%);
+}
+.main{
+    float: left;
+    margin: 10px 35px 10px;
+    padding: 0px 0 0 5%;
+}
+.card{
+    width: 350px;
+    height: 450px;
+
+    background-color: lightgreen;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: 1em;
+    text-align: center;
+}
+
+
+.card:hover{
+    animation: name 500ms linear forwards normal;
+}
+
+.card img{
+    margin: 5px auto;
+}
+
+@keyframes name {
+    0%{
+        transform: rotateX(0deg) scale(1);
+    }
+    50%{
+        transform: scale(1.5);
+    }
+    100%{
+        transform: rotateX(360deg) scale(1);
+    }
+}
