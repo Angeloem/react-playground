@@ -1,15 +1,16 @@
-import React , {Component} from 'react';
+import React, {Component} from 'react';
 import Cardlist from './Cardlist';
 import Searchbox from './Searchbox';
 import ErrorBoundry from './ErrorBoundry'
 import Scrollable from './Scrollable'
 import robots from './robots'
 import './App.css'
+import Form from "./forms/forms";
 
 
 class App extends Component{
     constructor(){
-        super()
+        super();
         this.state = {
             robots : robots,
             searchFile : '',
@@ -18,7 +19,7 @@ class App extends Component{
     }
     onSearchChange = (event) => {
         this.setState({searchFile : event.target.value })
-    }
+    };
 
     componentDidMount() {
         fetch('https://jsonplaceholder.typicode.com/users')//fetch it from an online API
@@ -35,6 +36,9 @@ class App extends Component{
             <div className={'tc'}>
                 <h1 className={'f1'}>Robotics</h1>
                 <Searchbox searchChange = {this.onSearchChange}/>
+                <div>
+                    <Form properties={`nickie nyau`} />
+                </div>
                 <Scrollable>
                     <ErrorBoundry>
                         <Cardlist robots = {filteredRobots}/>
