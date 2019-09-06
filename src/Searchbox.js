@@ -10,7 +10,7 @@ const Searchbox = ({searchfile , searchChange}) => {
                 placeholder={'search bots'}
                 onChange={searchChange}
             />
-            <Form properties={`This is me`} />
+            <Form />
         </div>
     );
 }
