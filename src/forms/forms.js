@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import Input from "./inputs";
 
 export default class Form extends Component{
-    constructor(props) {
-        super(props);
-    }
     componentDidMount() {
         console.log("component mounted")
     }
@@ -11,7 +9,22 @@ export default class Form extends Component{
     render() {
         return (
             <div>
-                {this.props.properties}
+                <Input
+                    className={'pa3 ba b--green bg-lightest-blue'}
+                    input_type={`text`}
+                    placeholder={`inputs`}
+                />
+                <Input
+                    className={'pa3 ba b--green bg-lightest-blue'}
+                    input_type={`textarea`}
+                    placeholder={`inputs`}
+                />
+                <Input
+                    className={'pa3 ba b--green bg-lightest-blue'}
+                    input_type={`button`}
+                    value={`submit`}
+                    placeholder={`inputs`}
+                />
             </div>
         );
     }
