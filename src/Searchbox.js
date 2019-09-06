@@ -1,4 +1,5 @@
 import React from 'react';
+import Form from "./forms/forms";
 
 const Searchbox = ({searchfile , searchChange}) => {
     return(
@@ -9,6 +10,7 @@ const Searchbox = ({searchfile , searchChange}) => {
                 placeholder={'search bots'}
                 onChange={searchChange}
             />
+            <Form properties={`This is me`} />
         </div>
     );
 }

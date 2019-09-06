@@ -2,9 +2,7 @@ import React from 'react';
 import Card from "./Card";
 
 const Cardlist = ({robots}) => {
-    if(false){
-        throw new  Error ('etyr');
-    }
+
     return(
 
         <div>
@@ -22,6 +20,6 @@ const Cardlist = ({robots}) => {
             }
         </div>
     );
-}
+};
 
 export default Cardlist;
