@@ -33,15 +33,25 @@ export default class Form extends Component{
                 Options: {
                     elementType: 'select',
                     elementConfig: {
-                        options:{}
+                        options:[
+                            {value:'Value1', displayValue: 'First'},
+                            {value:'Value2', displayValue: 'Second'},
+                            {value:'Value3', displayValue: 'Third'},
+                            {value:'Value4', displayValue: 'Fourth'},
+                        ],
                     },
-                    value: ''
+                    value: 'Select Form'
                 },
             }
         }
     }
 
     componentDidMount() {
+    }
+
+    formValueChanged(event) {
+        let target = event.target;
+        console.log(target.value)
     }
 
     render() {
@@ -57,6 +67,7 @@ export default class Form extends Component{
                 {
                     formFromStateArray.map(formElement => (
                         <Input
+                            changed={this.formValueChanged}
                             elementType={formElement.config.elementType}
                             elementConfig={formElement.config.elementConfig}
                             value={formElement.config.value}
