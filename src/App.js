@@ -5,7 +5,6 @@ import ErrorBoundry from './ErrorBoundry'
 import Scrollable from './Scrollable'
 import robots from './robots'
 import './App.css'
-import Form from "./forms/forms";
 
 
 class App extends Component{
@@ -32,13 +31,14 @@ class App extends Component{
                 return robots.name.toLowerCase().includes(this.state.searchFile.toLowerCase());
             });
 
+        /*my own presentation of forms using react*/
         return(
             <div className={'tc'}>
                 <h1 className={'f1'}>Robotics</h1>
                 <Searchbox searchChange = {this.onSearchChange}/>
-                <div>
-                    <Form properties={`nickie nyau`} />
-                </div>
+                {/*<div>*/}
+                {/*    <Form properties={`nickie nyau`} />*/}
+                {/*</div>*/}
                 <Scrollable>
                     <ErrorBoundry>
                         <Cardlist robots = {filteredRobots}/>

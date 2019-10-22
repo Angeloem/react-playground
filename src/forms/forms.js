@@ -49,9 +49,27 @@ export default class Form extends Component{
     componentDidMount() {
     }
 
-    formValueChanged(event) {
-        let target = event.target;
-        console.log(target.value)
+    formValueChanged = (event, keyIdentifier) => {
+        const updatedForm = {
+            ...this.state.displayForm
+        };
+        const updatedFormElements = {
+            ...updatedForm[keyIdentifier]
+        };
+        updatedFormElements.value = event.target.value;
+        updatedForm[keyIdentifier]=updatedFormElements;
+        this.setState({
+            displayForm: updatedFormElements
+        });
+    };
+
+    submit = (event) => {
+        event.preventDefault();
+        const formData = {};
+        for (let key in this.state.displayForm) {
+            formData[key] = this.state.displayForm[key].value;
+        }
+        console.log(formData)
     }
 
     render() {
@@ -63,18 +81,19 @@ export default class Form extends Component{
             });
         }
         return (
-            <div>
+            <form onSubmit={this.submit}>
                 {
                     formFromStateArray.map(formElement => (
                         <Input
-                            changed={this.formValueChanged}
+                            class={'pa3 ba b--green bg-lightest-blue'}
+                            changed={(event) => this.formValueChanged(event, formElement.id)}
                             elementType={formElement.config.elementType}
                             elementConfig={formElement.config.elementConfig}
                             value={formElement.config.value}
                         />
                     ))
                 }
-            </div>
+            </form>
         );
     }
 }
