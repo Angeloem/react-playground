@@ -6,7 +6,9 @@ import './Card.css';
 import App from './App';
 import 'tachyons';
 import * as serviceWorker from './serviceWorker';
+/* redux's part*/
 import {searchRobots} from "./reducers";
+import {Provider} from "react-redux";
 
 // eslint-disable-next-line
 let greet = "Hey Emanuel, I am enjoying using react here.  really enjoy it much much!";
@@ -14,7 +16,10 @@ let greet = "Hey Emanuel, I am enjoying using react here.  really enjoy it much 
 const store = createStore(searchRobots);
 
 ReactDOM.render(
-    <App store={{store}}/>
+    <Provider store={ store }>
+        <App/>
+    </Provider>
+
     , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
