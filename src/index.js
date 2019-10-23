@@ -10,9 +10,6 @@ import * as serviceWorker from './serviceWorker';
 import {searchRobots} from "./reducers";
 import {Provider} from "react-redux";
 
-// eslint-disable-next-line
-let greet = "Hey Emanuel, I am enjoying using react here.  really enjoy it much much!";
-
 const store = createStore(searchRobots);
 
 ReactDOM.render(
