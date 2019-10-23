@@ -10,7 +10,7 @@ import {setSearchField} from "./actions";
 
 const mapStateToProps = state => {
     return {
-        searchField: state.searchRobots.searchField
+        searchField: state.searchField
     }
 };
 
@@ -39,7 +39,7 @@ class App extends Component{
         const { searchField, onSearchChange } = this.props;
         const filteredRobots = robots.filter(robot => {
             return robot.name.toLowerCase()
-                .includes(this.state.searchFile.toLowerCase()
+                .includes(searchField.toLowerCase()
                 );
         });
         /*my own presentation of forms using react*/
