@@ -10,9 +10,11 @@ import {applyMiddleware, createStore} from 'redux';
 import {searchRobots} from "./reducers";
 import {Provider} from "react-redux";
 import {createLogger} from 'redux-logger';
+import thunkMiddleware from 'redux-thunk'
 
 const logger = createLogger();
-const store = createStore(searchRobots, applyMiddleware(logger));
+const store =
+    createStore(searchRobots, applyMiddleware(thunkMiddleware, logger));
 
 ReactDOM.render(
     <Provider store={ store }>
