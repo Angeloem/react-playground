@@ -1,18 +1,16 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import Cardlist from './Cardlist';
-import Searchbox from './Searchbox';
-import ErrorBoundry from './ErrorBoundry'
+import SearchBox from './Searchbox';
+import ErrorBoundary from './ErrorBoundry'
 import Scrollable from './Scrollable'
-import robots from './robots'
 import './App.css'
 // eslint-disable-next-line no-unused-vars
-import {searchRobots} from "./reducers";
 import {setSearchField} from "./actions";
 
 const mapStateToProps = state => {
     return {
-        searchField: state["searchRobots"].searchField
+        searchField: state.searchRobots.searchField
     }
 };
 
@@ -26,14 +24,9 @@ class App extends Component{
     constructor(props){
         super(props);
         this.state = {
-            robots : robots,
-            searchFile : '',
-            isNotLoaded : false
+            robots : [],
         }
     }
-    onSearchChange = (event) => {
-        this.setState({searchFile : event.target.value })
-    };
 
     componentDidMount() {
         fetch('https://jsonplaceholder.typicode.com/users')//fetch it from an online API
@@ -42,22 +35,25 @@ class App extends Component{
     }
 
     render() {
-        const filteredRobots = this.state.robots.filter(robots => {
-                return robots.name.toLowerCase().includes(this.state.searchFile.toLowerCase());
-            });
-
+        const { robots } = this.state;
+        const { searchField, onSearchChange } = this.props;
+        const filteredRobots = robots.filter(robot => {
+            return robot.name.toLowerCase()
+                .includes(this.state.searchFile.toLowerCase()
+                );
+        });
         /*my own presentation of forms using react*/
         return(
             <div className={'tc'}>
                 <h1 className={'f1'}>Robotics</h1>
-                <Searchbox searchChange = {this.onSearchChange}/>
+                <SearchBox searchChange = {onSearchChange}/>
                 {/*<div>*/}
                 {/*    <Form properties={`nickie nyau`} />*/}
                 {/*</div>*/}
                 <Scrollable>
-                    <ErrorBoundry>
+                    <ErrorBoundary>
                         <Cardlist robots = {filteredRobots}/>
-                    </ErrorBoundry>
+                    </ErrorBoundary>
                 </Scrollable>
             </div>
         )
