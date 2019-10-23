@@ -14,17 +14,17 @@ const mapStateToProps = state => {
     return {
         searchField: state["searchRobots"].searchField
     }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
         onSearchChange: (event) => dispatch(setSearchField(event.target.value))
     }
-}
+};
 
 class App extends Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             robots : robots,
             searchFile : '',
