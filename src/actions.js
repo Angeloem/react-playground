@@ -25,4 +25,4 @@ export const requestRobots = dispatch => {
             type: REQUEST_ROBOTS_FAILED,
             payload: error
         }))
-}
+};
