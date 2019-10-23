@@ -1,10 +1,10 @@
-import {CHANGE_SEARCH_FIELD} from "./constants";
+import {CHANGE_SEARCH_FIELD, REQUEST_ROBOTS_FAILED, REQUEST_ROBOTS_SUCCESSFUL} from "./constants";
 
-const initialState = {
+const initialStateForSearching = {
     searchField: ''
 };
 
-export const searchRobots = (state = initialState, action = {}) => {
+export const searchRobots = (state = initialStateForSearching, action = {}) => {
     switch (action.type) {
         case CHANGE_SEARCH_FIELD:
             return Object.assign({}, state, {searchField: action.payload});
@@ -13,4 +13,32 @@ export const searchRobots = (state = initialState, action = {}) => {
     }
 };
 
+const initialSTateRobots = {
+    isPending: false,
+    robots: [],
+    error: ''
+};
 
+export const requestRobots = (state = initialState, action = {}) => {
+    switch (action.type) {
+        case REQUEST_ROBOTS_FAILED:
+            return Object.assign(
+                {}, state, {isPending = true}
+            )
+        case REQUEST_ROBOTS_SUCCESSFUL:
+            return Object.assign(
+                {}, state, {
+                    isPending: false,
+                    robots: action.payload
+                }
+            )
+        case REQUEST_ROBOTS_FAILED:
+            return Object.assign(
+                {}, state,
+                {
+                    error: action.payload
+                    isPending:false
+                }
+            )
+    }
+}
