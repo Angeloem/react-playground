@@ -1,4 +1,4 @@
-import React , {Component} from 'react';
+import React, {Component} from 'react';
 import Cardlist from './Cardlist';
 import Searchbox from './Searchbox';
 import ErrorBoundry from './ErrorBoundry'
@@ -9,7 +9,7 @@ import './App.css'
 
 class App extends Component{
     constructor(){
-        super()
+        super();
         this.state = {
             robots : robots,
             searchFile : '',
@@ -18,9 +18,10 @@ class App extends Component{
     }
     onSearchChange = (event) => {
         this.setState({searchFile : event.target.value })
-    }
+    };
 
     componentDidMount() {
+        console.log(this.props.store.getState());
         fetch('https://jsonplaceholder.typicode.com/users')//fetch it from an online API
             .then(response => response.json())//convert it into json
             .then(users => this.setState({robots: users}))//assign it to robots
@@ -31,10 +32,14 @@ class App extends Component{
                 return robots.name.toLowerCase().includes(this.state.searchFile.toLowerCase());
             });
 
+        /*my own presentation of forms using react*/
         return(
             <div className={'tc'}>
                 <h1 className={'f1'}>Robotics</h1>
                 <Searchbox searchChange = {this.onSearchChange}/>
+                {/*<div>*/}
+                {/*    <Form properties={`nickie nyau`} />*/}
+                {/*</div>*/}
                 <Scrollable>
                     <ErrorBoundry>
                         <Cardlist robots = {filteredRobots}/>
