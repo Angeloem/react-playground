@@ -38,7 +38,7 @@ export const requestRobots = (state = initialSTateRobots, action = {}) => {
                     isPending: false,
                     robots: action.payload
                 }
-            )
+            );
         case REQUEST_ROBOTS_FAILED:
             return Object.assign(
                 {}, state,
@@ -46,6 +46,8 @@ export const requestRobots = (state = initialSTateRobots, action = {}) => {
                     error: action.payload,
                     isPending:false
                 }
-            )
+            );
+        default:
+            return state
     }
-}
+};
