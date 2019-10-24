@@ -24,7 +24,7 @@ const initialSTateRobots = {
     error: ''
 };
 
-export const requestRobots = (state = initialState, action = {}) => {
+export const requestRobots = (state = initialSTateRobots, action = {}) => {
     switch (action.type) {
         case REQUEST_ROBOTS_PENDING:
             return Object.assign(
